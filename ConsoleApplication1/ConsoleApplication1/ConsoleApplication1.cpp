@@ -1,8 +1,10 @@
 #include <iostream>
 #include <chrono>
 #include <vector>
+
 #include "Kmer.h"
 #include "Util.h"
+
 
 int main(int argc, char **argv)
 {   
@@ -21,6 +23,8 @@ int main(int argc, char **argv)
     std::cout << referentialSequence << std::endl;
 
     std::vector<Util::Position*> pos = Util::recordLowercasePositions("aaaaAAaBBaa");
+
+    Util::writePositionsToFile("output-Proba.txt", pos);
 
     auto end = std::chrono::high_resolution_clock::now();
 

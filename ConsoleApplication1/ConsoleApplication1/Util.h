@@ -69,6 +69,18 @@ namespace Util {
 		}
 
 		return positions;
+	} 
+
+	void writePositionsToFile(std::string fileName, std::vector<Position*>& positions) {
+		std::ofstream outputFile(fileName);
+
+		if (!outputFile.good()) {
+			throw std::invalid_argument("Can't open file!");
+		}
+
+		for (Position* pos : positions) {
+			outputFile << pos->startTarget << " " << pos->endTarget << " " << std::endl;
+		}
 	}
 
 } //end Util.h
