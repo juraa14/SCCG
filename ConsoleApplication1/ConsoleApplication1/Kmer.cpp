@@ -2,6 +2,6 @@
 
 Kmer::Kmer(std::string kmer, int kmerstart)
 {
-	this->kmer = kmer;
-	this->kmetstart = kmerstart;
+	this->kmer_ = kmer;
+	this->kmerStart_ = kmerstart;
 }

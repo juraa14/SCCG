@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-ConsoleApplication1",
+      "appliesTo": "ConsoleApplication1/ConsoleApplication1.sln",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-SCCG",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}

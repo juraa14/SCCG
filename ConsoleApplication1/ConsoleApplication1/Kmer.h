@@ -4,10 +4,10 @@
 class Kmer
 {
 private:
-	std::string kmer;
-	int kmetstart;
+	std::string kmer_;
+	int kmerStart_;
 
 public:
-	Kmer(std::string kmer, int kmerstart);
+	Kmer(std::string kmer, int kmerStart);
 };
 
