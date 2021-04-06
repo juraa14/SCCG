@@ -12,6 +12,11 @@ namespace Util {
 		int endTarget;
 	};
 
+	struct Kmer {
+		std::string kmer;
+		int kmerStart;
+	};
+
 	std::string readFASTA(std::string& fileName) {
 
 		std::ifstream inputFile(fileName);

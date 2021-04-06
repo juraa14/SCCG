@@ -3,7 +3,6 @@
 #include <vector>
 #include <algorithm>
 
-#include "Kmer.h"
 #include "Util.h"
 
 
