@@ -16,14 +16,14 @@ int main(int argc, char **argv)
 
     std::string referenceGenome = std::string(argv[2]);
     std::string targetGenome = std::string(argv[1]);
-
+     
     std::string targetSequence = Util::readFASTA(targetGenome);
     std::string referentialSequence = Util::readFASTA(referenceGenome);
 
     std::cout << referentialSequence << std::endl;
 
     std::string testStr = "aaaaAAaBBaa";
-    std::vector<Util::Position*> pos = Util::recordLowercasePositions(testStr);
+    std::vector< std::unique_ptr<Util::Position> > pos = Util::recordLowercasePositions(testStr);
 
     Util::writePositionsToFile("output-Proba.txt", pos);
 

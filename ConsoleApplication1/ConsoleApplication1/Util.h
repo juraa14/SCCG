@@ -2,20 +2,28 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <unordered_map>
+#include <memory>
 
 namespace Util {
 
 	struct Position {
-		int startRef;
-		int endRef;
-		int startTarget;
-		int endTarget;
+		int _startRef;
+		int _endRef;
+		int _startTarget;
+		int _endTarget;
+
+		~Position() {};
 	};
 
 	struct Kmer {
-		std::string kmer;
-		int kmerStart;
+		std::string _kmer;
+		int _position;
+
+		~Kmer() {};
 	};
+	//Key -> hashcode, value -> kmer and its position in segment
+	std::unordered_map<int, std::vector< std::unique_ptr<Kmer>> > H;
 
 	std::string readFASTA(std::string& fileName) {
 
@@ -36,8 +44,8 @@ namespace Util {
 		return data;
 	}
 
-	std::vector<Position*> recordLowercasePositions(std::string sequence) {
-		std::vector<Position*> positions;
+	std::vector<std::unique_ptr<Position>> recordLowercasePositions(std::string& sequence) {
+		std::vector<std::unique_ptr<Position>> positions;
 
 		int start = 0, end = 0;
 		bool first_lower = true;
@@ -46,19 +54,16 @@ namespace Util {
 			if (islower(sequence[i])) {
 				if (first_lower) {
 					start = i;
-					end += 1;
 					first_lower = false;
 				} 
-				else {
-					end += 1;
-				}
+				end += 1;
 			}
 			else {
 				if (!first_lower) {
-					Position* pos = new Position();
-					pos->startTarget = start;
-					pos->endTarget = end - 1;
-					positions.push_back(pos);
+					auto pos = std::make_unique<Position>();
+					pos->_startTarget = start;
+					pos->_endTarget = end - 1;
+					positions.push_back(std::move(pos));
 				}
 				start = 0;
 				end = i + 1;
@@ -67,24 +72,24 @@ namespace Util {
 		}
 
 		if (!first_lower) {
-			Position* pos = new Position();
-			pos->startTarget = start;
-			pos->endTarget = end - 1;
-			positions.push_back(pos);
+			auto pos = std::make_unique<Position>();
+			pos->_startTarget = start;
+			pos->_endTarget = end - 1;
+			positions.push_back(std::move(pos));
 		}
 
 		return positions;
 	} 
 
-	void writePositionsToFile(std::string fileName, std::vector<Position*>& positions) {
+	void writePositionsToFile(std::string fileName, std::vector< std::unique_ptr<Position> >& positions) {
 		std::ofstream outputFile(fileName);
 
 		if (!outputFile.good()) {
 			throw std::invalid_argument("Can't open file!");
 		}
 
-		for (Position* pos : positions) {
-			outputFile << pos->startTarget << " " << pos->endTarget << " " << std::endl;
+		for (auto const& pos : positions) {
+			outputFile << pos->_startTarget << " " << pos->_endTarget << " " << std::endl;
 		}
 	}
 
