@@ -91,6 +91,8 @@ namespace Util {
 		for (auto const& pos : positions) {
 			outputFile << pos->_startTarget << " " << pos->_endTarget << " " << std::endl;
 		}
+
+		outputFile.close();
 	}
 
 } //end Util.h
