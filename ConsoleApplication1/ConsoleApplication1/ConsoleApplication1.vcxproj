@@ -140,7 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication1.cpp" />
+    <ClCompile Include="Compression.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Util.h" />

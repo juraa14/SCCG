@@ -4,26 +4,30 @@
 #include <vector>
 #include <unordered_map>
 #include <memory>
+#include <functional>
 
 namespace Util {
 
 	struct Position {
-		int _startRef;
-		int _endRef;
-		int _startTarget;
-		int _endTarget;
+		size_t _startRef;
+		size_t _endRef;
+		size_t _startTarget;
+		size_t _endTarget;
 
 		~Position() {};
 	};
 
 	struct Kmer {
 		std::string _kmer;
-		int _position;
+		size_t _position;
+
+		Kmer(std::string _kmer, int _position): _kmer(_kmer), _position(_position) {}
 
 		~Kmer() {};
 	};
-	//Key -> hashcode, value -> kmer and its position in segment
-	std::unordered_map<int, std::vector< std::unique_ptr<Kmer>> > H;
+
+	//Key -> hashcode, value -> [kmer and its position in segment]
+	std::unordered_map<size_t, std::vector< std::unique_ptr<Kmer>> > local_H;
 
 	std::string readFASTA(std::string& fileName) {
 
@@ -93,6 +97,20 @@ namespace Util {
 		}
 
 		outputFile.close();
+	}
+
+	void buildLocalHashTable(std::string refSegment, int kmerLength) {
+		int L = refSegment.size();
+
+		for (size_t i = 0; i < L - kmerLength + 1; i++) {
+			std::string kmerStr = refSegment.substr(i, kmerLength);
+
+			auto kmer = std::make_unique<Kmer>(kmerStr, i);
+
+			size_t hash = std::hash<std::string>{}(kmerStr);
+
+			local_H[hash].push_back(std::move(kmer));			
+		}
 	}
 
 } //end Util.h
