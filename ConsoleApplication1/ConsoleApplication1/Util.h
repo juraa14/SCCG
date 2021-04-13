@@ -48,7 +48,7 @@ namespace Util {
 		return data;
 	}
 
-	std::vector<std::unique_ptr<Position>> recordLowercasePositions(std::string& sequence) {
+	std::vector<std::unique_ptr<Position>> recordLowercasePositions(const std::string& sequence) {
 		std::vector<std::unique_ptr<Position>> positions;
 
 		int start = 0, end = 0;
@@ -85,7 +85,7 @@ namespace Util {
 		return positions;
 	} 
 
-	void writePositionsToFile(std::string fileName, std::vector< std::unique_ptr<Position> >& positions) {
+	void writePositionsToFile(const std::string& fileName, std::vector< std::unique_ptr<Position> >& positions) {
 		std::ofstream outputFile(fileName);
 
 		if (!outputFile.good()) {
@@ -99,8 +99,8 @@ namespace Util {
 		outputFile.close();
 	}
 
-	void buildLocalHashTable(std::string refSegment, int kmerLength) {
-		int L = refSegment.size();
+	void buildLocalHashTable(const std::string& refSegment, int kmerLength) {
+		size_t L = refSegment.size();
 
 		for (size_t i = 0; i < L - kmerLength + 1; i++) {
 			std::string kmerStr = refSegment.substr(i, kmerLength);
@@ -111,6 +111,35 @@ namespace Util {
 
 			local_H[hash].push_back(std::move(kmer));			
 		}
+	}
+
+	std::vector<std::unique_ptr<Position>> localMatching(const std::string& reference, const std::string& target, int kmerLength) {
+		std::vector<std::unique_ptr<Position>> positions;
+
+		int startPosition, incrementSize;
+		
+
+		for (size_t i = 0; i < reference.size() - kmerLength + 1; i++) {
+			std::string targetKmer = target.substr(i, kmerLength);
+			size_t hash = std::hash<std::string>{}(targetKmer);
+
+			if (local_H.find(hash) == local_H.end()) { //target & reference segment do not match
+				startPosition = -1;
+				continue; //Increment index
+			}
+
+			auto& kmerVec = local_H[hash]; //Get kmer positions for this target segment
+			incrementSize = 0; //No kmer increments for now
+
+			for (auto const& kmerRef : kmerVec) {
+				if (kmerRef->_kmer.compare(targetKmer)) {
+					 
+
+				}
+			}
+		}
+
+		return positions;
 	}
 
 } //end Util.h
