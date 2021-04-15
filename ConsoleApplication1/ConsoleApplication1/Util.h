@@ -116,27 +116,70 @@ namespace Util {
 	std::vector<std::unique_ptr<Position>> localMatching(const std::string& reference, const std::string& target, int kmerLength) {
 		std::vector<std::unique_ptr<Position>> positions;
 
-		int startPosition, incrementSize;
+		int startPosition, incrementSize, longestIncrement;
 		
+		buildLocalHashTable(reference, kmerLength);
 
 		for (size_t i = 0; i < reference.size() - kmerLength + 1; i++) {
 			std::string targetKmer = target.substr(i, kmerLength);
-			size_t hash = std::hash<std::string>{}(targetKmer);
+			size_t hashTar = std::hash<std::string>{}(targetKmer);
 
-			if (local_H.find(hash) == local_H.end()) { //target & reference segment do not match
+			if (local_H.find(hashTar) == local_H.end()) { //target & reference segment do not match
 				startPosition = -1;
 				continue; //Increment index
 			}
 
-			auto& kmerVec = local_H[hash]; //Get kmer positions for this target segment
+			auto& kmerVecRef = local_H[hashTar]; //Get kmer positions reference segment
 			incrementSize = 0; //No kmer increments for now
+			longestIncrement = 0; //If there are multiple extended segments with same length
 
-			for (auto const& kmerRef : kmerVec) {
-				if (kmerRef->_kmer.compare(targetKmer)) {
-					 
+			for (auto const& kmerRef : kmerVecRef) {
+				incrementSize = 0;
+				if (kmerRef->_kmer == targetKmer) {
+					size_t i_ref = reference.size() - 1;
+					size_t i_tar = target.size() - 1;
+					size_t endRef = kmerRef->_position + kmerLength - 1;
+					size_t endTar = i + kmerLength - 1;
 
+					//How many chars can we extend the matching kmers?
+					for (auto [i_endRef, i_endTar] = std::tuple{ endRef + 1, endTar + 1 }; i_endRef <= i_ref && i_endTar <= i_tar && reference[i_endRef] == target[i_endTar]; i_endRef++, i_endTar++) {
+						incrementSize++;
+					}
+
+					if (kmerVecRef.size() <= 1) {
+						longestIncrement = incrementSize;
+						startPosition = kmerRef->_position;
+						continue;
+					}
+
+					else if (incrementSize == longestIncrement) { //Found same largest increment
+						if (positions.size() > 1) {
+							size_t endRefLast = positions.back()->_endRef;
+							if (kmerRef->_position - endRef < startPosition - endRefLast && startPosition != -1) {
+								startPosition = kmerRef->_position;
+							}
+						}
+					}
+					else {
+						longestIncrement = incrementSize;
+						startPosition = kmerRef->_position;
+					}
 				}
 			}
+
+			if (startPosition == -1) { //No extended matching found
+				continue;
+			}
+
+			auto pos = std::make_unique<Position>();
+			pos->_startTarget = i;
+			pos->_endTarget = i + kmerLength + longestIncrement - 1;
+			pos->_startRef = startPosition;
+			pos->_endRef = startPosition + kmerLength + longestIncrement - 1;
+
+			positions.push_back(std::move(pos));
+
+			i += kmerLength + longestIncrement - 2; //-2
 		}
 
 		return positions;

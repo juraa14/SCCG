@@ -75,7 +75,9 @@ int main(int argc, char **argv)
 
             int k = g_k; //kmer length k
             
-            Util::buildLocalHashTable("ACAABAACA", 3);
+            //Util::buildLocalHashTable("ACAABAACA", 3);
+
+            auto positions = Util::localMatching("ABADABAA", "ABACABAA", 2);
 
             break;
         }
