@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.5)  5 APR 2021 20:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.5)  25 APR 2021 00:05
 entering extended mode
 **./diplomski.tex
 (diplomski.tex
@@ -479,36 +479,58 @@ Poglavlje 1.
 
 ]
 Poglavlje 2.
-(diplomski.bbl [2
+[2
 
-]) [3
+] [3] [4]
+Poglavlje 3.
+(diplomski.bbl [5
 
-] [4] (diplomski.aux
+]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
+.
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
+(C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+[]\T1/ptm/m/n/12 Delta en-co-ding.  URL $\T1/pcr/m/n/12 https : / / en . wikipe
+dia . org / wiki / Delta _
+ []
 
-) ) 
+
+Underfull \hbox (badness 2922) in paragraph at lines 19--23
+\T1/pcr/m/n/12 org / wiki / Compression _ of _ Genomic _ Sequencing _ Data$\T1/
+ptm/m/n/12 .  Pris-tup:
+ []
+
+) [6
+
+] [7] (diplomski.aux) ) 
 Here is how much of TeX's memory you used:
- 7497 strings out of 479321
- 111906 string characters out of 2854199
- 429002 words of memory out of 3000000
- 24827 multiletter control sequences out of 15000+600000
- 443978 words of font info for 78 fonts, out of 8000000 for 9000
+ 7549 strings out of 479321
+ 112722 string characters out of 2854199
+ 434206 words of memory out of 3000000
+ 24872 multiletter control sequences out of 15000+600000
+ 456865 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,6n,88p,1397b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.e
-nc}<C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmr8.pfb><C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/
-fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/jradanovic/AppData/Local/Programs
-/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/jradanovic/AppData/Local/
-Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/jradanovic/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/jradanovic/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on diplomski.pdf (8 pages, 96045 bytes).
+ 83i,6n,88p,1638b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts
+/enc/dvips/base/8r.enc}<C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jradanovic/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jradanovic/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/jradan
+ovic/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/
+Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts/type1/urw/co
+urier/ucrr8a.pfb><C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts/type1
+/urw/helvetic/uhvb8a.pfb><C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fon
+ts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/jradanovic/AppData/Local/Programs/Mi
+KTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/jradanovic/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/jradanovic/AppData/Local/P
+rograms/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on diplomski.pdf (11 pages, 145751 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 99 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
