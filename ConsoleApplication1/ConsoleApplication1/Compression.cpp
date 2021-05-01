@@ -13,6 +13,7 @@ double g_T1 = 0.5;   //Threshold 1
 double g_T2 = 4;     //Threshold 2
 bool g_global = false; //Perform global or local matching
 int g_mismatch;
+int g_limit = 100; //global search kmer extension limit
 
 inline bool g_local() {
     return !g_global;
@@ -75,9 +76,14 @@ int main(int argc, char **argv)
 
             int k = g_k; //kmer length k
             
-            //Util::buildLocalHashTable("ACAABAACA", 3);
+            //Util::buildLocalHashTable("ABCCAB", 2);
 
-            auto positions = Util::localMatching("ABADABAA", "ABACABAA", 2);
+            auto positions = Util::localMatching("ABADABAcABA", "ABACABAxABA", 2);
+            auto position2 = Util::localMatching("CGGACGC", "CGGGGACGGCA", 2);
+            if (positions.size() == 0) {
+                g_k = 11;
+                positions = Util::localMatching("ABADABAA", "ABACABAA", 2);
+            }
 
             break;
         }

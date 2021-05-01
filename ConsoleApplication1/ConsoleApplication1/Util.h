@@ -19,7 +19,7 @@ namespace Util {
 
 	struct Kmer {
 		std::string _kmer;
-		size_t _position;
+		size_t _position; // start position
 
 		Kmer(std::string _kmer, int _position): _kmer(_kmer), _position(_position) {}
 
@@ -124,12 +124,12 @@ namespace Util {
 			std::string targetKmer = target.substr(i, kmerLength);
 			size_t hashTar = std::hash<std::string>{}(targetKmer);
 
-			if (local_H.find(hashTar) == local_H.end()) { //target & reference segment do not match
+			if (local_H.find(hashTar) == local_H.end()) { //target & reference kmer do not match
 				startPosition = -1;
 				continue; //Increment index
 			}
 
-			auto& kmerVecRef = local_H[hashTar]; //Get kmer positions reference segment
+			auto& kmerVecRef = local_H[hashTar]; //Get kmer positions from reference segment
 			incrementSize = 0; //No kmer increments for now
 			longestIncrement = 0; //If there are multiple extended segments with same length
 
@@ -160,7 +160,7 @@ namespace Util {
 							}
 						}
 					}
-					else {
+					else if (incrementSize > longestIncrement){
 						longestIncrement = incrementSize;
 						startPosition = kmerRef->_position;
 					}
@@ -179,7 +179,7 @@ namespace Util {
 
 			positions.push_back(std::move(pos));
 
-			i += kmerLength + longestIncrement - 2; //-2
+			i += kmerLength + longestIncrement - 0; // Start new kmer search from next character (after the mismatch char)
 		}
 
 		return positions;

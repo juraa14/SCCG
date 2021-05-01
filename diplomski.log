@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.5)  25 APR 2021 00:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.5)  27 APR 2021 13:09
 entering extended mode
 **./diplomski.tex
 (diplomski.tex
@@ -338,7 +338,62 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks29
 \@floatcapt=\box53
 )
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 4.
+(C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algori
+thm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count287
+\algocf@hangindent=\skip58
+
+(C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpag
+e.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count288
+)
+(C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\xspace
+.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.st
+y
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip59
+\skiplinenumber=\skip60
+\skiprule=\skip61
+\skiphlne=\skip62
+\skiptext=\skip63
+\skiplength=\skip64
+\algomargin=\skip65
+\skipalgocfslide=\skip66
+\algowidth=\dimen188
+\inoutsize=\dimen189
+\inoutindent=\dimen190
+\interspacetitleruled=\dimen191
+\interspacealgoruled=\dimen192
+\interspacetitleboxruled=\dimen193
+\algocf@ruledwidth=\skip67
+\algocf@inoutbox=\box54
+\algocf@inputbox=\box55
+\AlCapSkip=\skip68
+\AlCapHSkip=\skip69
+\algoskipindent=\skip70
+\algocf@nlbox=\box56
+\algocf@hangingbox=\box57
+\algocf@untilbox=\box58
+\algocf@skipuntil=\skip71
+\algocf@capbox=\box59
+\algocf@lcaptionbox=\skip72
+\algoheightruledefault=\skip73
+\algoheightrule=\skip74
+\algotitleheightruledefault=\skip75
+\algotitleheightrule=\skip76
+\c@algocfline=\count289
+\c@algocfproc=\count290
+\c@algocf=\count291
+\algocf@algoframe=\box60
+\algocf@algobox=\box61
+)
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 5.
 
 
 (C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
@@ -347,25 +402,25 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 (C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backen
 d-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count287
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count292
+\l__pdf_internal_box=\box62
 ) (diplomski.aux)
 \openout1 = `diplomski.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -405,16 +460,16 @@ LaTeX Font Info:    ... okay on input line 4.
 (C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-p
 df.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count288
-\scratchdimen=\dimen188
-\scratchbox=\box55
-\nofMPsegments=\count289
-\nofMParguments=\count290
+\scratchcounter=\count293
+\scratchdimen=\dimen194
+\scratchbox=\box63
+\nofMPsegments=\count294
+\nofMParguments=\count295
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count291
-\MPscratchDim=\dimen189
-\MPnumerator=\count292
-\makeMPintoPDFobject=\count293
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen195
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
 \everyMPtoPDFconversion=\toks31
 )
 (C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epsto
@@ -441,19 +496,19 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 15
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 16
 .
 
 (C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
 
 
 (C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
 
 
 (C:\Users\jradanovic\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -465,7 +520,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <izvornik.pdf, id=7, 597.23125pt x 845.1575pt>
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf>
-Package pdftex.def Info: izvornik.pdf  used on input line 19.
+Package pdftex.def Info: izvornik.pdf  used on input line 20.
 (pdftex.def)             Requested size: 412.56387pt x 583.82991pt.
  [1 <./izvornik.pdf>] [3] (diplomski.toc)
 \tf@toc=\write3
@@ -482,8 +537,12 @@ Poglavlje 2.
 [2
 
 ] [3] [4]
+Overfull \vbox (1.8326pt too high) has occurred while \output is active []
+
+
+[5] [6]
 Poglavlje 3.
-(diplomski.bbl [5
+(diplomski.bbl [7
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
@@ -503,17 +562,17 @@ Underfull \hbox (badness 2922) in paragraph at lines 19--23
 ptm/m/n/12 .  Pris-tup:
  []
 
-) [6
+) [8
 
-] [7] (diplomski.aux) ) 
+] [9] (diplomski.aux) ) 
 Here is how much of TeX's memory you used:
- 7549 strings out of 479321
- 112722 string characters out of 2854199
- 434206 words of memory out of 3000000
- 24872 multiletter control sequences out of 15000+600000
- 456865 words of font info for 88 fonts, out of 8000000 for 9000
+ 8524 strings out of 479321
+ 128882 string characters out of 2854199
+ 464183 words of memory out of 3000000
+ 25830 multiletter control sequences out of 15000+600000
+ 470178 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,6n,88p,1638b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,22n,88p,1638b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts
 /enc/dvips/base/8r.enc}<C:/Users/jradanovic/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jradanovic/AppData/Local/Program
@@ -528,9 +587,9 @@ ts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/jradanovic/AppData/Local/Programs/Mi
 KTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/jradanovic/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/jradanovic/AppData/Local/P
 rograms/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on diplomski.pdf (11 pages, 145751 bytes).
+Output written on diplomski.pdf (13 pages, 160291 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
