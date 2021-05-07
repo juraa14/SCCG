@@ -1,7 +1,9 @@
 \babel@toc {croatian}{}
 \contentsline {chapter}{\numberline {1}Uvod}{1}{}%
 \contentsline {chapter}{\numberline {2}Kompresija genoma}{2}{}%
-\contentsline {section}{\numberline {2.1}SCCG algoritam}{3}{}%
-\contentsline {subsection}{\numberline {2.1.1}Lokalno pretraživanje}{3}{}%
-\contentsline {chapter}{\numberline {3}Zaključak}{7}{}%
-\contentsline {chapter}{Literatura}{8}{}%
+\contentsline {chapter}{\numberline {3}SCCG algoritam}{4}{}%
+\contentsline {section}{\numberline {3.1}Lokalno pretraživanje}{4}{}%
+\contentsline {section}{\numberline {3.2}Globalno pretraživanje}{8}{}%
+\contentsline {section}{\numberline {3.3}Delta kodiranje}{9}{}%
+\contentsline {chapter}{\numberline {4}Zaključak}{10}{}%
+\contentsline {chapter}{Literatura}{11}{}%
