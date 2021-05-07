@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <memory>
 #include <functional>
+#include <cstdlib>
 
 namespace Util {
 
@@ -18,16 +19,20 @@ namespace Util {
 	};
 
 	struct Kmer {
-		std::string _kmer;
+		//std::string _kmer;
 		size_t _position; // start position
 
-		Kmer(std::string _kmer, int _position): _kmer(_kmer), _position(_position) {}
+		//Kmer(std::string _kmer, int _position): _kmer(_kmer), _position(_position) {}
+
+		Kmer(int _position): _position(_position) {}
 
 		~Kmer() {};
 	};
 
 	//Key -> hashcode, value -> [kmer and its position in segment]
 	std::unordered_map<size_t, std::vector< std::unique_ptr<Kmer>> > local_H;
+	std::unordered_map<size_t, std::vector< std::unique_ptr<Kmer>> > global_H;
+
 
 	std::string readFASTA(std::string& fileName) {
 
@@ -105,7 +110,7 @@ namespace Util {
 		for (size_t i = 0; i < L - kmerLength + 1; i++) {
 			std::string kmerStr = refSegment.substr(i, kmerLength);
 
-			auto kmer = std::make_unique<Kmer>(kmerStr, i);
+			auto kmer = std::make_unique<Kmer>(i);
 
 			size_t hash = std::hash<std::string>{}(kmerStr);
 
@@ -135,7 +140,7 @@ namespace Util {
 
 			for (auto const& kmerRef : kmerVecRef) {
 				incrementSize = 0;
-				if (kmerRef->_kmer == targetKmer) {
+				if (reference.substr(kmerRef->_position, kmerLength) == targetKmer) {
 					size_t i_ref = reference.size() - 1;
 					size_t i_tar = target.size() - 1;
 					size_t endRef = kmerRef->_position + kmerLength - 1;
@@ -180,6 +185,97 @@ namespace Util {
 			positions.push_back(std::move(pos));
 
 			i += kmerLength + longestIncrement - 0; // Start new kmer search from next character (after the mismatch char)
+		}
+
+		return positions;
+	}
+
+	std::vector<std::unique_ptr<Position>> globalMatching(const std::string& reference, const std::string& target, int kmerLength, int m) {
+		std::vector<std::unique_ptr<Position>> positions;
+
+		int startPosition, incrementSize, longestIncrement;
+
+		buildLocalHashTable(reference, kmerLength);
+
+		for (size_t i = 0; i < reference.size() - kmerLength + 1; i++) {
+			std::string targetKmer = target.substr(i, kmerLength);
+			size_t hashTar = std::hash<std::string>{}(targetKmer);
+
+			if (local_H.find(hashTar) == local_H.end()) { //target & reference kmer do not match
+				startPosition = -1;
+				continue; //Increment index
+			}
+
+			auto& kmerVecRef = local_H[hashTar]; //Get kmer positions from reference segment
+			incrementSize = 0; //No kmer increments for now
+			longestIncrement = 0; //If there are multiple extended segments with same length
+
+			for (auto const& kmerRef : kmerVecRef) {
+				incrementSize = 0;
+				if (reference.substr(kmerRef->_position, kmerLength) == targetKmer) {
+					int endRefLast = 0;
+					if (positions.size() > 0) {
+						endRefLast = positions.back()->_endRef;
+					}
+					
+					if (!std::abs((int)kmerRef->_position - endRefLast) < m) {
+						continue;
+					}
+
+					size_t i_ref = reference.size() - 1;
+					size_t i_tar = target.size() - 1;
+					size_t endRef = kmerRef->_position + kmerLength - 1;
+					size_t endTar = i + kmerLength - 1;
+
+					
+					
+					for (auto [i_endRef, i_endTar] = std::tuple{ endRef + 1, endTar + 1 }; i_endRef <= i_ref && i_endTar <= i_tar && reference[i_endRef] == target[i_endTar]; i_endRef++, i_endTar++) {
+						incrementSize++;
+					}
+					
+					
+
+					if (kmerVecRef.size() <= 1) {
+						longestIncrement = incrementSize;
+						startPosition = kmerRef->_position;
+						continue;
+					}
+
+					else if (incrementSize == longestIncrement) { //Found same largest increment
+						if (positions.size() > 1) {
+							
+							if (kmerRef->_position - endRef < startPosition - endRefLast && startPosition != -1) {
+								startPosition = kmerRef->_position;
+							}
+						}
+					}
+					else if (incrementSize > longestIncrement) {
+						longestIncrement = incrementSize;
+						startPosition = kmerRef->_position;
+					}
+				}
+				else {
+					continue;
+				}
+			} 
+
+			if (startPosition == -1) { //No extended matching found
+				continue;
+			}
+
+			auto pos = std::make_unique<Position>();
+			pos->_startTarget = i;
+			pos->_endTarget = i + kmerLength + longestIncrement - 1;
+			pos->_startRef = startPosition;
+			pos->_endRef = startPosition + kmerLength + longestIncrement - 1;
+
+			positions.push_back(std::move(pos));
+
+			i += kmerLength + longestIncrement - 0; // Start new kmer search from next character (after the mismatch char)
+		}
+
+		if (positions.size() == 0) {
+			return globalMatching(reference, target, kmerLength, 0);
 		}
 
 		return positions;

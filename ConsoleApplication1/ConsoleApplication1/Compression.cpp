@@ -93,11 +93,12 @@ int main(int argc, char **argv)
             tarSegment = tarSequence.substr(startTar, endTar - startTar);
 
             auto positions = Util::localMatching("ABADABAcABA", "ABACABAxABA", 2);
-            //auto position2 = Util::localMatching("CGGACGC", "CGGGGACGGCA", 2);
+            auto position2 = Util::localMatching("CGGACGC", "CGGGGACGGCA", 2);
             if (positions.size() == 0) {
                 g_k = 11;
                 positions = Util::localMatching("ABADABAA", "ABACABAA", 2);
             }
+            positions = Util::globalMatching("CGGACGC", "CGGGGACGGCA", 2, 1);
 
             if (positions.size() == 0) { // No local match
                 g_mismatch++;

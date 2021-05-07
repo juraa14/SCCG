@@ -1,4 +1,7 @@
 ﻿  Compression.cpp
-C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\ConsoleApplication1\Compression.cpp(80,24): warning C4018: '>': signed/unsigned mismatch
-C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\ConsoleApplication1\Compression.cpp(85,24): warning C4018: '>': signed/unsigned mismatch
+C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\ConsoleApplication1\Util.h(221,10): warning C4804: '<': unsafe use of type 'bool' in operation
+C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\ConsoleApplication1\Util.h(247,40): warning C4018: '<': signed/unsigned mismatch
+C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\ConsoleApplication1\Compression.cpp(81,24): warning C4018: '>': signed/unsigned mismatch
+C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\ConsoleApplication1\Compression.cpp(86,24): warning C4018: '>': signed/unsigned mismatch
+C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\ConsoleApplication1\Compression.cpp(127,28): warning C4018: '>=': signed/unsigned mismatch
   ConsoleApplication1.vcxproj -> C:\Users\jradanovic\Desktop\SCCG\ConsoleApplication1\Debug\ConsoleApplication1.exe
